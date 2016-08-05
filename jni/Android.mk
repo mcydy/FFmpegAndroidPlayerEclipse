@@ -31,9 +31,10 @@ LOCAL_SRC_FILES := prebuilt/libavdevice-57.so
 include $(PREBUILT_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := videoplayer.c
+LOCAL_MODULE := GlPlayer
+LOCAL_SRC_FILES := glplayer.c
 LOCAL_LDLIBS := -llog -lm -lz -landroid
-LOCAL_MODULE := VideoPlayer
+LOCAL_LDLIBS += -lGLESv1_CM 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_SHARED_LIBRARIES := avcodec avformat avutil swresample swscale avdevoce
 include $(BUILD_SHARED_LIBRARY)

@@ -25,6 +25,14 @@ JNIEXPORT void JNICALL Java_com_fuchao_ffmpegandroidplayer_GlVideoView_onNdkSurf
 
 /*
  * Class:     com_fuchao_ffmpegandroidplayer_GlVideoView
+ * Method:    onNdkGetFrame
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_fuchao_ffmpegandroidplayer_GlVideoView_onNdkGetFrame
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_fuchao_ffmpegandroidplayer_GlVideoView
  * Method:    onNdkDrawFrame
  * Signature: ()V
  */

@@ -17,6 +17,8 @@ public class GlVideoView extends GLSurfaceView implements GLSurfaceView.Renderer
 	static {
 		System.loadLibrary("GlPlayer");
 	}
+	
+	private String filePath = "/mnt/sdcard/a.flv";
 
 	public GlVideoView(Context context) {
 		super(context);
@@ -38,11 +40,22 @@ public class GlVideoView extends GLSurfaceView implements GLSurfaceView.Renderer
 	public void onDrawFrame(GL10 arg0) {
 		onNdkDrawFrame();
 	}
+	
+	
+	
+	@Override
+	protected void finalize() throws Throwable {
+		//销毁资源
+		onNdkDestory();
+		super.finalize();
+	}
 
 	private native void onNdkSurfaceCreated();
 
 	private native void onNdkSurfaceChanged(int width, int height);
-
+	
+	private native void onNdkGetFrame();
+	
 	private native void onNdkDrawFrame();
 
 	// 销毁NDK的资源
